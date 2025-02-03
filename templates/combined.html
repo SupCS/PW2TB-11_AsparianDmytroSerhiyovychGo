@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комбінований калькулятор</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Комбінований калькулятор викидів</h1>
+        <form method="post">
+            <label>Нижча теплота згоряння палива (Q_i, ГДж/т): <input type="text" name="Q_i"></label>
+            <label>Зольність палива (A_r, %): <input type="text" name="A_r"></label>
+            <label>Вміст вологи (Г_вив, %): <input type="text" name="G_viv"></label>
+            <label>ККД золоуловлювання (η_ЗУ, %): <input type="text" name="efficiency"></label>
+            <label>Леткий попіл (a_вив, %): <input type="text" name="a_viv"></label>
+            <label>Масова витрата палива (B_i, т): <input type="text" name="B_i"></label>
+            <label>Коєфіцієнт взаємодії сірки (k_твS, г/ГДж): <input type="text" name="k_tvs"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .k_tv}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Показник емісії: {{.k_tv}} г/ГДж</p>
+            <p>Валовий викид: {{.E_j}} т</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>

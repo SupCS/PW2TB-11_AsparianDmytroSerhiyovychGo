@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор 1</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор валового викиду</h1>
+        <form method="post">
+            <label>Нижча теплота згоряння палива (Q_i, ГДж/т): <input type="text" name="Q_i"></label>
+            <label>Масова витрата палива (B_i, т): <input type="text" name="B_i"></label>
+            <label>Фактор емісії (k_j, г/ГДж): <input type="text" name="k_j"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .E_j}}
+        <div class="result">
+            <h2>Результат:</h2>
+            <p>Валовий викид: {{.E_j}} т</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>
